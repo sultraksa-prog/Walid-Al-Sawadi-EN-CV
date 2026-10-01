@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walid Ahmed Mohammed Al-Sawadi - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a365d; /* Dark Navy Blue for accents */
+            --text-main: #1f2937; /* Dark Gray for main text */
+            --text-muted: #4b5563; /* Medium Gray for secondary text */
+            --bg-color: #f3f4f6; /* Very light gray for screen background */
+            --paper-bg: #ffffff;
+            --border-color: #e5e7eb;
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            --page-width: 800px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .resume-container {
+            max-width: var(--page-width);
+            margin: 40px auto;
+            background-color: var(--paper-bg);
+            padding: 50px 60px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-top: 6px solid var(--primary-color);
+            border-radius: 4px;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            font-size: 15px;
+            margin-bottom: 2px;
+            color: var(--text-main);
+        }
+
+        p {
+            margin-bottom: 8px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 14px;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item::after {
+            content: "|";
+            margin-left: 15px;
+            color: var(--border-color);
+        }
+        
+        .contact-item:last-child::after {
+            content: "";
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .item-subtitle {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .item-date {
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .section-content {
+            margin-bottom: 15px;
+        }
+
+        .skills-list li {
+            margin-bottom: 8px;
+        }
+        .skill-category {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        @media screen and (max-width: 768px) {
+            .resume-container {
+                margin: 0;
+                padding: 30px 20px;
+                border-radius: 0;
+                box-shadow: none;
+                border-top: 4px solid var(--primary-color);
+            }
+            .item-header {
+                flex-direction: column;
+                margin-bottom: 8px;
+            }
+            .item-date {
+                margin-top: 2px;
+                color: var(--text-muted);
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .contact-item::after {
+                content: "";
+            }
+        }
+
+        @media print {
+            body {
+                background-color: white;
+                font-size: 12px; /* Slightly smaller for print fitting */
+            }
+            .resume-container {
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                border-top: none; /* Remove colored top border for print */
+                max-width: 100%;
+                width: 100%;
+            }
+            /* Ensure links are printed normally, no underlines unless specified */
+            a {
+                text-decoration: none;
+                color: var(--text-main);
+            }
+            /* Hide elements that shouldn't be printed if any existed (e.g., download buttons) */
+            .no-print {
+                display: none !important;
+            }
+            
+            /* Page break management */
+            h2, h3, .item-header {
+                page-break-after: avoid;
+            }
+            .section-content {
+                page-break-inside: avoid;
+            }
+            
+            /* Optional: Add header on subsequent pages if it spans multiple (usually not needed for 1-pager) */
+            @page {
+                margin: 2cm; /* Standard print margins */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="resume-container">
+        
+        <!-- Header Section: Contact Information -->
+        <header>
+            <h1>Walid Ahmed Mohammed Al-Sawadi</h1>
+            <div class="contact-info">
+                <span class="contact-item">Location: Saudi Arabia</span>
+                <span class="contact-item">Nationality: Yemeni</span>
+                <span class="contact-item">Date of Birth: Feb 28, 2004</span>
+                <span class="contact-item">Tel: +967 779 324 550</span>
+                <span class="contact-item"><a href="mailto:waleedahmedalswadi@gmail.com">waleedahmedalswadi@gmail.com</a></span>
+            </div>
+        </header>
+
+        <!-- Professional & Academic Summary Section -->
+        <section>
+            <h2>Professional & Academic Summary</h2>
+            <p>
+                An ambitious and dedicated student passionate about learning and teaching the English language, seeking an English language scholarship at Umm Al-Qura University. Possesses a strong linguistic foundation established through comprehensive diploma programs and advanced courses, complemented by practical experience in teaching and tutoring English to students. Aims to refine academic and language skills within a premier university environment to elevate the standard of English education and actively contribute to the educational community.
+            </p>
+        </section>
+
+        <!-- Education Section -->
+        <section>
+            <h2>Education</h2>
+            <div class="section-content">
+                <div class="item-header">
+                    <div>
+                        <h3 class="item-title">High School Diploma (Scientific Track)</h3>
+                        <span class="item-subtitle">Al-Hussein Public School, Sana'a, Yemen</span>
+                    </div>
+                    <span class="item-date">2024</span>
+                </div>
+                <p>Percentage: 68%</p>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section>
+            <h2>Professional Experience (Teaching)</h2>
+
+            <div class="section-content">
+                <div class="item-header">
+                    <div>
+                        <h3 class="item-title">English Language Teacher</h3>
+                        <span class="item-subtitle">Al-Khaled School, Raymah, Yemen</span>
+                    </div>
+                    <span class="item-date">Current Year</span>
+                </div>
+                <ul>
+                    <li>Teaching essential vocabulary and grammar to foundational level students.</li>
+                    <li>Designing and preparing interactive educational activities to facilitate learning.</li>
+                    <li>Simplifying information and adapting teaching methods to suit individual and group student levels.</li>
+                </ul>
+            </div>
+
+            <div class="section-content">
+                <div class="item-header">
+                    <div>
+                        <h3 class="item-title">English Language Teacher</h3>
+                        <span class="item-subtitle">17 July Public School, Ibb, Yemen</span>
+                    </div>
+                    <span class="item-date">1 Year</span>
+                </div>
+                <ul>
+                    <li>Training students in reading, writing, and proper English pronunciation.</li>
+                    <li>Monitoring students' academic performance and providing necessary support to improve outcomes.</li>
+                </ul>
+            </div>
+
+            <div class="section-content">
+                <div class="item-header">
+                    <div>
+                        <h3 class="item-title">English Language Teacher</h3>
+                        <span class="item-subtitle">Al-Anwar Private School, Ibb, Yemen</span>
+                    </div>
+                    <span class="item-date">1 Year</span>
+                </div>
+                <ul>
+                    <li>Managing classrooms and applying effective teaching strategies.</li>
+                    <li>Enhancing students' communication skills through extracurricular activities.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Certifications & Training Section -->
+        <section>
+            <h2>Certifications & Training (English Language)</h2>
+            <div class="section-content">
+                <ul>
+                    <li>
+                        <strong>Comprehensive English Language Diploma (Beginner to Advanced)</strong> - 
+                        <em>Speak Now Institute, Ibb, Yemen</em><br>
+                        Completed three progressive diplomas covering all English language skills.
+                    </li>
+                    <li>
+                        <strong>Local TOEFL Preparation Course</strong> - 
+                        <em>Speak Now Institute, Ibb, Yemen</em>
+                    </li>
+                    <li>
+                        <strong>Foundational English Language Courses (6 Levels)</strong> - 
+                        <em>American French Institute, Sana'a, Yemen</em>
+                    </li>
+                    <li>
+                        <strong>Foundational English Language Courses (2 Levels)</strong> - 
+                        <em>Canadian Center, Sana'a, Yemen</em>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2>Skills</h2>
+            <div class="section-content">
+                <ul class="skills-list">
+                    <li><span class="skill-category">Language Skills:</span> Native Arabic, Advanced English (Reading, Writing, Speaking).</li>
+                    <li><span class="skill-category">Teaching Skills:</span> Curriculum Simplification, Individual & Group Tutoring, Student Assessment, Lesson Planning.</li>
+                    <li><span class="skill-category">Soft Skills:</span> Effective Communication, Adaptability, Continuous Learning, Academic Drive, Time Management.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
